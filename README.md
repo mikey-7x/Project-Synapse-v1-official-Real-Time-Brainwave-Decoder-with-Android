@@ -6,7 +6,7 @@
 ![AI Core](https://img.shields.io/badge/AI-Trinx--DTW%20%7C%20CNN--GRU-orange.svg)
 ![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-red.svg)
 
-## 🧠 Overview
+## ⚡ Overview
 **Project Synapse v1 official** is an advanced, industrial-grade Brain-Computer Interface (BCI) and Subvocal Neuromuscular (sEMG) decoding system. It is a massive architectural evolution from the legacy real-time brainwave decoder repository.
 
 This project captures microscopic biological signals (microvolts), amplifies them using a custom dual-supply analog front-end, digitizes them with a 16-bit ADC, and streams them wirelessly to an Android or PC terminal. The core of this system is the proprietary **`[mikey:hexoid-sys]` Trinx Engine**, a highly advanced artificial intelligence architecture that combines Autocorrelation, Dynamic Time Warping (DTW), and Deep Learning (CNN-LSTM/GRU) to decode raw human thoughts and subvocal speech into text with unparalleled precision.
