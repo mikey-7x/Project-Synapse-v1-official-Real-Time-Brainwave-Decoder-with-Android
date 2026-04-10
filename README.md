@@ -78,13 +78,23 @@ The graphical interface and AI engine are executed in Python via PC or Termux/Py
 
 ---
 
-## 📂 Repository Structure Guide
-*(Author Note: Ensure your files are uploaded to these specific folders)*
-* `/hardware_design` - Contains all circuit block diagrams, schematic traces, PCB copper layers, and BOM notes.
-* `/assets` - Contains GUI interface screenshots, waveform videos, and anatomical placement references.
-* `/docs` - Contains the master PDF documentation and research notes.
-* `synapse.py` - The main Python engine and GUI.
-* `trinx_first.py` - The proprietary Native AI package.
+## 📂 images
+schematic:
+![circuit diagram](PROJECT SYNAPSE.BMP)
+![circuit diagram](ps.jpg)
+
+layout:
+![layout](psl.jpg)
+![layout](psl2.jpg)
+
+flowchart:
+![flowchart](pss.jpg)
+
+
+physicall pcb:
+![pcb](psl4.jpg)
+![pcb](psl5.jpg)
+
 
 ---
 
