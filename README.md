@@ -156,12 +156,18 @@ termux-x11:0&
 **2. Launch the Application**
 Go back to your Termux terminal (ensure you are logged into Arch Linux) and run the following commands:
 ```bash
+# Navigate to the project folder
+cd ~/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
+
+# Activate the Miniforge AI environment
+source ~/miniforge3/bin/activate
+conda activate synapse_tf
+
 # Route the graphics to Termux:X11
 export DISPLAY=:0
 
 # Launch the Project Synapse Engine
 python synapse.py
-
 ```
 ### 📡 Connecting to the Hardware
 Once the GUI opens in your Termux:X11 window:
