@@ -130,6 +130,9 @@ pip install xgboost tensorflow
 Since Arch Linux inside Termux doesn't have a physical screen, it needs to send the Tkinter GUI to an X-Server app (like **Termux:X11** or an **XServer XSDL** app on your phone).
 If you are using **Termux:X11** (the recommended way):
  1. Start the Termux:X11 app on your Android phone.
+```
+termux-x11 :0&
+```
  2. In your Arch terminal, export the display variable so Python knows where to draw the GUI:
 ```bash
 export DISPLAY=:0
