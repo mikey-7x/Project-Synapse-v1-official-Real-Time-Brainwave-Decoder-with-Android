@@ -124,7 +124,9 @@ source ~/miniforge3/bin/activate
 Step 4: Clone the Project Synapse Repository
 Download the official source code to your local environment.
 ```bash
-wget https://raw.githubusercontent.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android/refs/heads/main/synapse.py?token=GHSAT0AAAAAADQV5DT2OSWMEZAFJUNWCIC62O2M5HA
+git clone [https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git](https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git)
+cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
+
 ```
 Step 5: Create the AI Environment & Install Packages
 Create a dedicated Conda environment locked to Python 3.11, then install the scientific, graphical, and Deep Learning dependencies.
