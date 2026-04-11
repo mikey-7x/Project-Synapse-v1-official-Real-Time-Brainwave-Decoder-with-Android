@@ -116,9 +116,8 @@ Step 3: Install Miniforge (Conda for ARM64)
 Arch Linux enforces bleeding-edge Python versions (e.g., 3.14) which are incompatible with stable TensorFlow releases. We will install Miniforge to create an isolated Python 3.11 environment.
 ```bash
 cd ~
-wget [https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh)
+wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh"
 bash Miniforge3-Linux-aarch64.sh -b
-source ~/miniforge3/bin/activate
 
 ```
 Step 4: Clone the Project Synapse Repository
@@ -126,7 +125,7 @@ Download the official source code to your local environment.
 ```bash
 git clone [https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git](https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git)
 cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
-
+source ~/miniforge3/bin/activate
 ```
 Step 5: Create the AI Environment & Install Packages
 Create a dedicated Conda environment locked to Python 3.11, then install the scientific, graphical, and Deep Learning dependencies.
