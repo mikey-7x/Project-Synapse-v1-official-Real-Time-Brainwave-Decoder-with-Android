@@ -149,7 +149,6 @@ python synapse.py
 
 ## 📂 images
 schematic:
-![circuit diagram](PROJECT SYNAPSE.BMP)
 ![circuit diagram](ps.jpg)
 
 layout:
