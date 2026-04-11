@@ -146,18 +146,15 @@ pip install tensorflow
 ```
 Execution: Running the Decoder
 Every time you open Termux to run the Project Synapse GUI, you must connect to your X11 display server and activate the Conda environment.
-**1. Start the Display Server**
+**1. Start the Display Server in termux**
 Open the **Termux:X11** app on your phone and leave it running in the background.
+```
+termux-x11:0&
+```
+
 **2. Launch the Application**
 Go back to your Termux terminal (ensure you are logged into Arch Linux) and run the following commands:
 ```bash
-# Navigate to the project folder
-cd ~/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
-
-# Activate the Miniforge AI environment
-source ~/miniforge3/bin/activate
-conda activate synapse_tf
-
 # Route the graphics to Termux:X11
 export DISPLAY=:0
 
