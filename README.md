@@ -79,7 +79,7 @@ The graphical interface and AI engine are executed in Python via PC or Termux/Py
 ---
 ## implementation
 
-### Step 1: Install & Login to Arch Linux in Termux
+Step 1: Install & Login to Arch Linux in Termux
 If you haven't already set up the Arch Linux proot environment, open your standard Termux terminal and run:
 ```bash
 pkg update -y && pkg upgrade -y
@@ -88,7 +88,7 @@ proot-distro install archlinux
 proot-distro login archlinux
 
 ```
-### Step 2: Install System Dependencies & Compilers
+Step 2: Install System Dependencies & Compilers
 Arch Linux requires you to manually install the GUI toolkit (Tkinter/Tk) and the C/C++ compilers required to build heavy Python data science libraries. Run this inside Arch:
 ```bash
 pacman -Syu --noconfirm
@@ -104,7 +104,7 @@ git clone https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brai
 cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
 
 ```
-### Step 4: Create a Python Virtual Environment
+Step 4: Create a Python Virtual Environment
 Modern Arch Linux strictly enforces PEP 668, which blocks you from using pip install globally to prevent breaking the system. You **must** create a virtual environment:
 ```bash
 python -m venv .synapse_env
@@ -135,7 +135,7 @@ If you are using **Termux:X11** (the recommended way):
 export DISPLAY=:0
 
 ```
-### Step 7: Run the Decoder!
+Step 7: Run the Decoder!
 With the GUI connected and the environment activated, you are ready to launch your engine:
 ```bash
 python synapse.py
