@@ -146,6 +146,7 @@ pip install tensorflow
 ```
 Execution: Running the Decoder
 Every time you open Termux to run the Project Synapse GUI, you must connect to your X11 display server and activate the Conda environment.
+
 **1. Start the Display Server in termux**
 Open the **Termux:X11** app on your phone and leave it running in the background.
 ```
