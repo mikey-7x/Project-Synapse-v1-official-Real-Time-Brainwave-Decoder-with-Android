@@ -77,10 +77,27 @@ The graphical interface and AI engine are executed in Python via PC or Termux/Py
 3. Execute `synapse.py`. Input your port (e.g., 5656) and click Connect.
 
 ---
-## implementation
 
-Step 1: Install & Login to Arch Linux in Termux
-If you haven't already set up the Arch Linux proot environment, open your standard Termux terminal and run:
+# 📱 Installation & Execution Guide: Arch Linux (Termux)
+**Project Synapse v1 official | Running the `[mikey:hexoid-sys]` Engine on Android**
+
+Running a heavy machine learning Graphical User Interface (GUI) directly on an Android device requires bypassing Android's native limitations. We achieve this by utilizing **Termux**, **PRoot Arch Linux**, and **Miniforge (Conda)** to create a fully functioning desktop-class AI environment on an ARM64 processor.
+
+Follow these instructions step-by-step to compile the AI cores and launch the Synapse GUI.
+
+---
+
+🛠️ Prerequisites
+Before beginning, ensure you have installed the following apps on your Android device:
+1. **Termux** (Download from F-Droid, *not* the Google Play Store).
+2. **Termux:X11** (Required to display the Python GUI).
+
+---
+
+🚀 Step-by-Step Installation
+
+Step 1: Install Arch Linux in Termux
+Open the Termux app and install the PRoot Arch Linux distribution.
 ```bash
 pkg update -y && pkg upgrade -y
 pkg install proot-distro -y
@@ -88,62 +105,73 @@ proot-distro install archlinux
 proot-distro login archlinux
 
 ```
-Step 2: Install System Dependencies & Compilers
-Arch Linux requires you to manually install the GUI toolkit (Tkinter/Tk) and the C/C++ compilers required to build heavy Python data science libraries. Run this inside Arch:
+Step 2: Install System Dependencies
+Once logged into the root@localhost Arch environment, install the core compilers, Git, and the Tkinter graphics libraries required by the GUI.
 ```bash
 pacman -Syu --noconfirm
-pacman -S --noconfirm python python-pip git base-devel tk xorg-server-xvfb openblas hdf5
+pacman -S --noconfirm base-devel git wget tk xorg-server-xvfb openblas hdf5
 
 ```
-*(Note: tk is absolutely mandatory, otherwise the Tkinter GUI will crash immediately.)*
-### Step 3: Clone Your Repository
-Download your official repository from GitHub:
+Step 3: Install Miniforge (Conda for ARM64)
+Arch Linux enforces bleeding-edge Python versions (e.g., 3.14) which are incompatible with stable TensorFlow releases. We will install Miniforge to create an isolated Python 3.11 environment.
 ```bash
 cd ~
-git clone https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git
+wget [https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh)
+bash Miniforge3-Linux-aarch64.sh -b
+source ~/miniforge3/bin/activate
+
+```
+Step 4: Clone the Project Synapse Repository
+Download the official source code to your local environment.
+```bash
+git clone [https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git](https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git)
 cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
 
 ```
-Step 4: Create a Python Virtual Environment
-Modern Arch Linux strictly enforces PEP 668, which blocks you from using pip install globally to prevent breaking the system. You **must** create a virtual environment:
+Step 5: Create the AI Environment & Install Packages
+Create a dedicated Conda environment locked to Python 3.11, then install the scientific, graphical, and Deep Learning dependencies.
 ```bash
-python -m venv .synapse_env
-source .synapse_env/bin/activate
+# Create and activate the Python 3.11 environment
+conda create -n synapse_tf python=3.11 -y
+conda activate synapse_tf
 
-```
-*(You will see (.synapse_env) appear in your terminal prompt. You must run source .synapse_env/bin/activate every time you restart Termux).*
-### Step 5: Install the AI & Mathematical Dependencies
-Now, install all the libraries required by your [mikey:hexoid-sys] engine. Because you are on an ARM64 mobile processor, pip will download pre-compiled aarch64 wheels.
-```bash
-# Upgrade pip first
+# Upgrade Pip
 pip install --upgrade pip
 
-# Install standard math and ML libraries
-pip install numpy pandas scipy matplotlib scikit-learn joblib
+# Install Classical ML & Math Cores
+pip install numpy pandas scipy matplotlib scikit-learn joblib xgboost
 
-# Install Advanced AI Cores
-pip install xgboost tensorflow
+# Install Deep Learning Core (TensorFlow for ARM64)
+pip install tensorflow
 
 ```
-*(Note: Installing TensorFlow and XGBoost on an Android processor might take a few minutes as it extracts large matrix binaries. Let it finish without interrupting).*
-### Step 6: Connect to your X11 Display Server
-Since Arch Linux inside Termux doesn't have a physical screen, it needs to send the Tkinter GUI to an X-Server app (like **Termux:X11** or an **XServer XSDL** app on your phone).
-If you are using **Termux:X11** (the recommended way):
- 1. Start the Termux:X11 app on your Android phone.
-```
-termux-x11 :0&
-```
- 2. In your Arch terminal, export the display variable so Python knows where to draw the GUI:
+Execution: Running the Decoder
+Every time you open Termux to run the Project Synapse GUI, you must connect to your X11 display server and activate the Conda environment.
+**1. Start the Display Server**
+Open the **Termux:X11** app on your phone and leave it running in the background.
+**2. Launch the Application**
+Go back to your Termux terminal (ensure you are logged into Arch Linux) and run the following commands:
 ```bash
+# Navigate to the project folder
+cd ~/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
+
+# Activate the Miniforge AI environment
+source ~/miniforge3/bin/activate
+conda activate synapse_tf
+
+# Route the graphics to Termux:X11
 export DISPLAY=:0
 
-```
-Step 7: Run the Decoder!
-With the GUI connected and the environment activated, you are ready to launch your engine:
-```bash
+# Launch the Project Synapse Engine
 python synapse.py
 
 ```
+### 📡 Connecting to the Hardware
+Once the GUI opens in your Termux:X11 window:
+ 1. Ensure your HC-05 Bluetooth module is powered and paired to your phone.
+ 2. Start your TCP-to-Serial background bridge (forwarding Bluetooth to port 5656).
+ 3. Click **CONNECT** in the Project Synapse GUI.
+ 4. The system will sync with the 0xAA 0x55 binary stream, and your brainwaves will appear on the screen!
 
 ---
 
