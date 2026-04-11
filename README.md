@@ -199,3 +199,6 @@ This project is licensed under the **Creative Commons Attribution-NonCommercial 
 
 ### 💼 Commercial Licensing (Dual-License)
 Project Synapse is strictly protected against unauthorized corporate use. If you are a corporation, startup, medical entity, or individual who wishes to utilize Project Synapse, its schematics, or the proprietary `[mikey:hexoid-sys]` AI architecture for commercial purposes, you must obtain explicit, written legal permission. Please contact the author directly to negotiate a commercial license agreement.
+
+auther Gmail id:
+chauhanyogesh9825@gmail.com
