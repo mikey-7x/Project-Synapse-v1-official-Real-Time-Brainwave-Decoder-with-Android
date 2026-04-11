@@ -123,7 +123,8 @@ source ~/miniforge3/bin/activate
 Step 4: Clone the Project Synapse Repository
 Download the official source code to your local environment.
 ```bash
-git clone [https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git](https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git)
+cd ~
+git clone https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git
 cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
 ```
 Step 5: Create the AI Environment & Install Packages
