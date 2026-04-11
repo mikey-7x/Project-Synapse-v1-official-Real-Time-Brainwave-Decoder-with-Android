@@ -102,7 +102,7 @@ Open the Termux app and install the PRoot Arch Linux distribution.
 pkg update -y && pkg upgrade -y
 pkg install proot-distro -y
 proot-distro install archlinux
-proot-distro login archlinux
+proot-distro login archlinux --shared-tmp
 
 ```
 Step 2: Install System Dependencies
@@ -169,6 +169,8 @@ export DISPLAY=:0
 # Launch the Project Synapse Engine
 python synapse.py
 ```
+make sure if your not bind "--shared-tmp" where login any proot-proot-distro linux, this will gives errors 
+
 ### 📡 Connecting to the Hardware
 Once the GUI opens in your Termux:X11 window:
  1. Ensure your HC-05 Bluetooth module is powered and paired to your phone.
