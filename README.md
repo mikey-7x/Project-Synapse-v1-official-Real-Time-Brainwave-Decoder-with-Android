@@ -155,6 +155,10 @@ termux-x11 :0&
 
 **2. Launch the Application**
 Go back to your Termux terminal (ensure you are logged into Arch Linux) and run the following commands:
+```
+pd login Archlinux --shared-tmp
+```
+
 ```bash
 # Navigate to the project folder
 cd ~/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
