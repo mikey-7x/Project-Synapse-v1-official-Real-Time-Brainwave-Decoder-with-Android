@@ -130,6 +130,8 @@ cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
 Step 5: Create the AI Environment & Install Packages
 Create a dedicated Conda environment locked to Python 3.11, then install the scientific, graphical, and Deep Learning dependencies.
 ```bash
+conda install pip -y
+
 # Create and activate the Python 3.11 environment
 conda create -n synapse_tf python=3.11 -y
 conda activate synapse_tf
