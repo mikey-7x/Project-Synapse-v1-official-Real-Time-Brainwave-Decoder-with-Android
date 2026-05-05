@@ -158,7 +158,7 @@ termux-x11 :0&
 **2. Launch the Application**
 Go back to your Termux terminal (ensure you are logged into Arch Linux) and run the following commands:
 ```
-pd login Archlinux --shared-tmp
+pd login archlinux --shared-tmp
 ```
 
 ```bash
