@@ -1,4 +1,23 @@
 # ==============================================================================
+# PROJECT SYNAPSE v1 - real-time EEG / subvocal-EMG decoder
+# POWERED BY [mikey:hexoid-sys]
+#
+# Created by mikey-7x - Yogesh R. Chauhan
+# Copyright (c) 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+# Licence: mikey-7x Strict Personal & Educational Use Licence (see LICENSE.md).
+#          Commercial, clinical or industrial use needs written permission.
+#
+# Project: https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
+# Author:  https://github.com/mikey-7x
+#
+# SAFETY: battery-powered only while electrodes touch a person.
+#         Experimental prototype - not a medical device.
+#
+# This revision changed comments, the window title and one startup banner only.
+# All acquisition, filtering, extraction, training and prediction logic is
+# unchanged from the published build.
+# ==============================================================================
+# ==============================================================================
 # PROJECT SYNAPSE powered by [mikey:hexoid-sys]
 # Copyright (c) 2026 mikey-7x
 # Edition: Precision Augmentation & Advanced Extraction Core
@@ -103,7 +122,7 @@ GRU_MODEL_FILE = os.path.join(MODELS_DIR, "brain_model_gru.keras")
 class QuantumSynapseGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("PROJECT SYNAPSE By Mikey-7x")
+        self.root.title("PROJECT SYNAPSE v1 - POWERED BY [mikey:hexoid-sys]")
         self.root.geometry("500x980")
         self.root.configure(bg="#050505")
 
@@ -720,5 +739,7 @@ class QuantumSynapseGUI:
         except Exception as e: print(e)
 
 if __name__ == "__main__":
+    print("PROJECT SYNAPSE v1  |  POWERED BY [mikey:hexoid-sys]")
+    print("Created by mikey-7x - Yogesh R. Chauhan  |  strict non-commercial licence")
     app = QuantumSynapseGUI(tk.Tk())
     app.root.mainloop()

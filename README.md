@@ -1,243 +1,211 @@
-# Project Synapse v1 official : Real-Time Brainwave Decoder with Android
-**Powered by the [mikey:hexoid-sys] Engine | Copyright (c) 2026 mikey-7x**
+<div align="center">
 
-![Version](https://img.shields.io/badge/version-v1.0.0--official-blue.svg)
-![Hardware](https://img.shields.io/badge/hardware-Single--Channel_EEG%2FsEMG-brightgreen.svg)
-![AI Core](https://img.shields.io/badge/AI-Trinx--DTW%20%7C%20CNN--GRU-orange.svg)
-![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-red.svg)
+<img src="assets/powered-by-mikey-hexoid-sys.png" alt="POWERED BY [mikey:hexoid-sys]" width="560">
 
-## ⚡ Overview
-**Project Synapse v1 official** is an advanced, industrial-grade Brain-Computer Interface (BCI) and Subvocal Neuromuscular (sEMG) decoding system. It is a massive architectural evolution from the legacy real-time brainwave decoder repository.
+# Project Synapse v1
 
-This project captures microscopic biological signals (microvolts), amplifies them using a custom dual-supply analog front-end, digitizes them with a 16-bit ADC, and streams them wirelessly to an Android or PC terminal. The core of this system is the proprietary **`[mikey:hexoid-sys]` Trinx Engine**, a highly advanced artificial intelligence architecture that combines Autocorrelation, Dynamic Time Warping (DTW), and Deep Learning (CNN-LSTM/GRU) to decode raw human thoughts and subvocal speech into text with unparalleled precision.
+**A single-channel EEG and subvocal-EMG acquisition instrument with variable-length gesture decoding.**
 
----
+![Stage](https://img.shields.io/badge/stage-experimental%20prototype-2f3640?style=flat-square)
+![Channels](https://img.shields.io/badge/channels-1%20differential-3c4043?style=flat-square)
+![ADC](https://img.shields.io/badge/ADC-16--bit%20%C2%B7%20140%20Hz%20host%20rate-3c4043?style=flat-square)
+![Stack](https://img.shields.io/badge/stack-Python%20%C2%B7%20Tk%20%C2%B7%20TensorFlow-202124?style=flat-square)
+![Licence](https://img.shields.io/badge/licence-strict%20personal%20%26%20educational-b3261e?style=flat-square)
 
-## 🧬 The "Trinx" Paradigm & Project Evolution
-Traditional Machine Learning and BCI systems rely on rigid, fixed-time data windows (e.g., forcing a brainwave into a strict 2-second array using zero-padding). This inherently destroys biological data because human thoughts are elastic. 
+`POWERED BY [mikey:hexoid-sys]`
 
-To solve this, Project Synapse developed the **"Trinx"** concept. A *Trinx* is defined as the pure, distinct structural shape of a thought or subvocalized word, regardless of its time interval. If thinking the word "YES" takes 0.8 seconds one time and 1.3 seconds the next, the *shape* remains the same, even if the time stretches.
+</div>
 
-### The Step-by-Step Evolution of the Engine:
-1. **The Rigid Window Phase:** Early iterations relied on standard Keras deep learning arrays. Sudden high-amplitude noise caused filter "edge-ringing," resulting in zero-padding corruption and model crashes (Ghost Predictions).
-2. **The Amplitude Trigger Flaw:** The system initially looked for sudden "spikes" to capture a thought. However, high-gain setups produced constant high-energy waves, causing the AI to extract only 1 sample per 60 seconds of training, resulting in failed model compilations.
-3. **The Tsunami Bottleneck Fix:** Wireless Bluetooth transmission of 16-bit data caused TCP buffer overloads. The Android GUI would freeze and then release a "Tsunami" of delayed waveforms. This was solved by engineering a High-Speed Binary Batch Parser that aligns the `0xAA 0x55` sync bytes natively in micro-batches.
-4. **The Final `[mikey:hexoid-sys]` Autocorrelation Architecture:** The engine now scans a full 60-second biological record. It mathematically overlaps the wave onto itself to find the exact dynamic repetition interval (periodicity). It dynamically slices the audio into exact intervals, cross-verifies the topological shape of each Trinx using Pearson Correlation, and feeds the pure, unpadded shapes into a custom Native DTW AI, while simultaneously generating synthetic augmented data for Keras CNN-GRU/LSTM compilation.
+> [!WARNING]
+> **Experimental electronics. Not a medical device.**
+> No clinical validation, no regulatory certification, no accuracy claim.
+> Operate on **battery power only** while electrodes touch a person. Read
+> [SAFETY.md](SAFETY.md) and [LIMITATIONS](docs/LIMITATIONS.md) before building anything.
 
 ---
 
-## ⚡ Hardware Architecture & Bill of Materials (BOM)
-The custom analog front-end is designed to maximize Signal-to-Noise Ratio (SNR) and utilize Common-Mode Rejection (CMRR) to eliminate environmental RF noise.
+## What this is
 
-### Core Components
-* **Instrumentation Amplifier:** 1x INA128U/2K5 (SOIC-8)
-* **Precision Op-Amps:** 2x OPA2134UA/2K5 (SMD-8)
-* **ADC Module:** 1x ADS1115 (16-Bit I2C ADC)
-* **Microcontroller:** 1x Arduino Nano (CH340)
-* **Wireless Transceiver:** 1x HC-05 Bluetooth Module (6-pin)
-* **Power Supply:** 1x 3.7V 500mAh Li-Poly Cell
-* **Voltage Regulation:** 1x MT3608 Boost Module (Boosts to +5V) & 1x LM2776DBVR Inverter (Inverts +5V to -5V for a True Dual Supply)
-* **Biological Interface:** Ag/AgCl Cup Electrodes
+Project Synapse is a complete, buildable acquisition chain for very small biological
+potentials: a discrete analog front-end, a 16-bit ADC sampled by an Arduino Nano, a
+Bluetooth binary link, and a desktop-class Python application that segments, features and
+classifies the incoming signal on an Android phone or a Linux machine.
 
-### Discrete Components & Passives
-* **Capacitors:** 10nF polystyrene, 1nF (100v 0805), 1uF (X7R 1210), 10uF (25v 1210), 100nF (X7R 1206)
-* **Resistors (High Precision 0.1%):** 100R, 1k, 1.5k, 4.7k, 10k, 330k, 1M (Yageo/Panasonic SMD)
-* **Diodes:** 10x 1N5819 SMD Schottky (DO-214AC), 1N4148 (for precision rectifiers)
+It is presented as an engineering study: instrumentation design, a wire protocol, a
+signal-processing pipeline and a small-multiple comparison of classical and deep-learning
+decoders. It is **not** a product and **not** a brain-reading device.
 
-### Analog Signal Pipeline
-1. **Input Protection & RFI Filter:** Passive RC filters (4.7k resistor, 10nF/1nF caps) and 1N5819 diode clamps protect the sensitive INA128 from static discharge and filter out high-frequency radio interference.
-2. **First Amplification Stage:** The INA128 is configured with a 100-ohm gain resistor ($R_g$), providing a massive initial gain of ~501x.
-3. **DC Blocking (High Pass Filter):** A 1uF capacitor and 330k resistor remove skin-battery DC offset (cutoff ~0.48Hz), re-centering the wave to 0V.
-4. **Second Amplification & Active LPF:** The OPA2134 provides secondary gain and actively filters out high-frequency muscle artifacts (cutoff ~106Hz).
-5. **Splitter & Precision Rectifier:** The signal is split. Because the ADS1115 operates on 0-5V and cannot read negative voltages, OPA2134 active rectifiers format the AC waveform into safe 0-5V positive and negative half-wave streams for pins A0 and A1.
+| Layer | Implementation |
+| --- | --- |
+| Electrodes | Ag/AgCl cup electrodes, three-wire placement |
+| Analog front-end | INA128 instrumentation amplifier (G = 501), OPA2134 stages, 0.48 Hz high-pass, ~106 Hz low-pass, precision rectifiers |
+| Conversion | ADS1115, 16-bit, ±6.144 V range, 860 SPS internal rate |
+| Acquisition | Arduino Nano (ATmega328P), microsecond-paced loop at **140 Hz** |
+| Transport | HC-05 Bluetooth SPP → TCP bridge on port **5656**, 6-byte frames |
+| Host | Python 3.11 · Tk GUI · NumPy / SciPy / scikit-learn / XGBoost / TensorFlow |
+| Decoders | Trinx-DTW memory bank, CNN-LSTM, CNN-GRU, XGBoost, Random Forest, SVM, KNN, logistic regression |
+| Storage | `/storage/emulated/0/Documents/Project_Synapse/{EEG_Data,Models}` |
 
----
+## Research poster
 
-## 🧲 Electrode Placement Guide
-Skin preparation is mandatory. Use an alcohol wipe to remove skin oils and apply medical conductive gel to the Ag/AgCl electrodes to prevent infinite resistance.
+[![Project Synapse research poster](assets/scientific-poster.png)](assets/scientific-poster.pdf)
 
-* **Reference Electrode (GND):** Placed on the Mastoid process (the bony area directly behind the ear) or the collarbone. This provides the RF "Zero" baseline.
-* **Active 1 (VIN+) & Active 2 (VIN-):**
-  * **For Brainwaves (EEG):** Center of the forehead (Fp1 / Fp2). *Note: Keep eyes perfectly still to avoid EOG blink artifacts.*
-  * **For Subvocal Speech (sEMG):** Left and right sides of the larynx/jaw. Provides immense microvolt spikes perfect for mapping spoken words.
+A2 print-ready poster (PNG + PDF) in [`assets/`](assets/): the signal chain, the timing
+budget, the Trinx segmentation method, the DTW cost surface, the decoder stack and the
+honest limits, on one page. Figures are deterministic illustrations of the pipeline, not
+measured results.
 
----
+## Repository map
 
-## 💻 Software & AI Setup
-The graphical interface and AI engine are executed in Python via PC or Termux/Pydroid on Android. 
+| Path | Contents |
+| --- | --- |
+| `synapse.py` | Engine build v18 — all-in-one master core (acquisition, dashboard, Trinx extraction, training, prediction) |
+| `next_synapse.py` | Engine build v19 — same pipeline with adjusted model hyper-parameters and extraction refinements |
+| `sketch_mar20b.ino` | Firmware: ADS1115 dual-channel read, 140 Hz pacing, `0xAA 0x55` framing over serial |
+| `sketch_mar29a.cpp.hex` | Prebuilt AVR binary produced from the acquisition sketch (legacy filename) |
+| `ps.jpg`, `psl*.jpg`, `pss.jpg`, `pss2.pdf` | Schematic, PCB layout, physical board and flow-chart figures |
+| `PROJECT SYNAPSE.BMP`, `project synapse original.jpg` | Original project artwork |
+| `assets/` | Brand files, poster, checksums and the asset guide |
+| `docs/` | Hardware, protocol, algorithm, setup, usage, limitations, troubleshooting |
+| `tools/verify_repository.py` | Offline self-check (structure, branding, licence, syntax, assets) |
+| `tools/make_poster.py` | Deterministic generator for the research poster |
+| `.github/` | CI checks, issue forms, pull-request template |
 
-**Model Architecture:**
-* **Native Trinx-First Engine:** Custom AI utilizing Z-Score normalized Dynamic Time Warping (DTW) matrix math.
-* **Deep Learning Cores:** Keras-based 1D-CNN + LSTM and 1D-CNN + GRU networks. The engine automatically synthesizes augmented data (Gaussian noise injection) to expand training sets.
-* **Classical ML:** XGBoost, Random Forest, SVM, KNN, Logistic Regression running on 18-point statistically extracted feature vectors.
+## Signal chain in numbers
 
-**To Run:**
-1. Power the hardware and pair the HC-05 via Bluetooth.
-2. Launch the TCP-Serial bridge on Android.
-3. Execute `synapse.py`. Input your port (e.g., 5656) and click Connect.
+```text
+electrodes          INA128 (G = 501)      OPA2134 HPF 0.48 Hz    LPF ~106 Hz
+   ↓                      ↓                      ↓                    ↓
+µV-scale            first gain stage       DC / skin battery     muscle & RFI
+                                                                        ↓
+ADS1115 A0 / A1  ←  precision rectifiers (0–5 V)  ←  splitter  ─────────┘
+   ↓  16-bit, 860 SPS
+Arduino Nano  →  `AA 55 | A0 hi | A0 lo | A1 hi | A1 lo`  →  140 frames/s  →  HC-05
+   ↓  9600 baud serial
+TCP 5656  →  Python host  →  notch 50 Hz · 1–40 Hz band-pass  →  4 s buffer (560 samples)
+```
 
----
+Design details, gain and filter arithmetic: **[docs/HARDWARE.md](docs/HARDWARE.md)**.
+Protocol, frame timing and the bandwidth budget: **[docs/PROTOCOL.md](docs/PROTOCOL.md)**.
 
-# 📱 Installation & Execution Guide: Arch Linux (Termux)
-**Project Synapse v1 official | Running the `[mikey:hexoid-sys]` Engine on Android**
+## The Trinx idea
 
-Running a heavy machine learning Graphical User Interface (GUI) directly on an Android device requires bypassing Android's native limitations. We achieve this by utilizing **Termux**, **PRoot Arch Linux**, and **Miniforge (Conda)** to create a fully functioning desktop-class AI environment on an ARM64 processor.
+Fixed-length windows and zero-padding destroy the shape of a biological gesture: the same
+subvocalised word can last 0.8 s once and 1.3 s the next. Synapse instead measures the
+**period** of the recording from the autocorrelation of its envelope, slices the stream at
+that period, z-normalises each slice, and compares slices as elastic shapes using dynamic
+time warping. A slice is a *Trinx* — a time-normalised gesture template.
 
-Follow these instructions step-by-step to compile the AI cores and launch the Synapse GUI.
+```text
+60 s recording → envelope → autocorrelation → period T (0.5–3.0 s)
+      → slices of length T → energy gate → z-normalised Trinx bank
+      → DTW nearest-neighbour  |  padded tensors for CNN-LSTM / CNN-GRU
+      → 19-feature vectors for XGBoost / RF / SVM / KNN / logistic regression
+```
 
----
+Full method, parameters, the 19-feature definition and the acceptance rule:
+**[docs/ALGORITHM.md](docs/ALGORITHM.md)**.
 
-🛠️ Prerequisites
-Before beginning, ensure you have installed the following apps on your Android device:
-1. **Termux** (Download from F-Droid, *not* the Google Play Store).
-2. **Termux:X11** (Required to display the Python GUI).
+## Getting started on Android (Termux)
 
----
-
-🚀 Step-by-Step Installation
-
-Step 1: Install Arch Linux in Termux
-Open the Termux app and install the PRoot Arch Linux distribution.
 ```bash
 pkg update -y && pkg upgrade -y
-pkg install proot-distro -y
+pkg install proot-distro termux-x11-nightly -y
 proot-distro install archlinux
 proot-distro login archlinux --shared-tmp
-
 ```
-Step 2: Install System Dependencies
-Once logged into the root@localhost Arch environment, install the core compilers, Git, and the Tkinter graphics libraries required by the GUI.
+
+Inside Arch Linux:
+
 ```bash
 pacman -Syu --noconfirm
 pacman -S --noconfirm base-devel git wget tk xorg-server-xvfb openblas hdf5
-
-```
-Step 3: Install Miniforge (Conda for ARM64)
-Arch Linux enforces bleeding-edge Python versions (e.g., 3.14) which are incompatible with stable TensorFlow releases. We will install Miniforge to create an isolated Python 3.11 environment.
-```bash
-cd ~
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh"
 bash Miniforge3-Linux-aarch64.sh -b
 source ~/miniforge3/bin/activate
-```
-Step 4: Clone the Project Synapse Repository
-Download the official source code to your local environment.
-```bash
-cd ~
 git clone https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android.git
 cd Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
-```
-Step 5: Create the AI Environment & Install Packages
-Create a dedicated Conda environment locked to Python 3.11, then install the scientific, graphical, and Deep Learning dependencies.
-```bash
-conda install pip -y
-
-# Create and activate the Python 3.11 environment
-conda create -n synapse_tf python=3.11 -y
-conda activate synapse_tf
-
-# Upgrade Pip
+conda create -n synapse_tf python=3.11 -y && conda activate synapse_tf
 pip install --upgrade pip
-
-# Install Classical ML & Math Cores
-pip install numpy pandas scipy matplotlib scikit-learn joblib xgboost
-
-# Install Deep Learning Core (TensorFlow for ARM64)
-pip install tensorflow
-
-```
-Execution: Running the Decoder
-Every time you open Termux to run the Project Synapse GUI, you must connect to your X11 display server and activate the Conda environment.
-
-**1. Start the Display Server in termux**
-Open the **Termux:X11** app on your phone and leave it running in the background.
-```
-termux-x11 :0&
+pip install numpy pandas scipy matplotlib scikit-learn joblib xgboost tensorflow
 ```
 
-**2. Launch the Application**
-Go back to your Termux terminal (ensure you are logged into Arch Linux) and run the following commands:
-```
-pd login archlinux --shared-tmp
-```
+Run it:
 
 ```bash
-# Navigate to the project folder
+termux-x11 :0 &                    # in Termux, Termux:X11 app in the background
+proot-distro login archlinux --shared-tmp
 cd ~/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
-
-# Activate the Miniforge AI environment
-source ~/miniforge3/bin/activate
-conda activate synapse_tf
-
-# Route the graphics to Termux:X11
+source ~/miniforge3/bin/activate && conda activate synapse_tf
 export DISPLAY=:0
-
-# Launch the Project Synapse Engine
 python synapse.py
 ```
-make sure if your not bind "--shared-tmp" where login any proot-proot-distro linux, this will gives errors 
 
-### 📡 Connecting to the Hardware
-Once the GUI opens in your Termux:X11 window:
- 1. Ensure your HC-05 Bluetooth module is powered and paired to your phone.
- 2. Start your TCP-to-Serial background bridge (forwarding Bluetooth to port 5656).
- 3. Click **CONNECT** in the Project Synapse GUI.
- 4. The system will sync with the 0xAA 0x55 binary stream, and your brainwaves will appear on the screen!
+Always use `--shared-tmp`; without it the PRoot session and the X11 socket cannot see each
+other. Full walk-through, desktop alternative and troubleshooting:
+**[docs/ANDROID-SETUP.md](docs/ANDROID-SETUP.md)** and **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 
----
+## Using the application
 
-## 📂 images
-schematic:
-![circuit diagram](ps.jpg)
+1. Power the analog board from its battery and pair the HC-05 to the phone.
+2. Start the Bluetooth-to-TCP bridge so the app can open `127.0.0.1:5656`.
+3. Launch the engine, press **CONNECT** — the parser locks onto the `0xAA 0x55` sync words.
+4. Prepare skin, attach electrodes, keep still; watch the live trace and band powers.
+5. Name a label, record the requested strips, and start training.
+6. Switch on prediction. A label is shown only when the confidence heuristic reaches 90 %;
+   otherwise the frame is rejected.
 
-layout:
-![layout](psl.jpg)
-![layout](psl2.jpg)
+Step-by-step: **[docs/USAGE.md](docs/USAGE.md)**.
 
-flowchart:
-![flowchart](pss.jpg)
+## What this project does *not* claim
 
+- It does not read thoughts, words or intentions reliably. It classifies a small set of
+  self-recorded, self-labelled gestures, and its own acceptance rule rejects most frames.
+- It has never been evaluated by an ethics board, a clinician or a metrology laboratory.
+- It is single-channel, 140 Hz, unshielded, hobby-grade hardware: motion, blink, mains and
+  electrode-contact artefacts dominate the signal far more often than neural activity.
+- The figures published here illustrate the processing chain; they are not accuracy results.
 
-physicall pcb:
-![pcb](psl4.jpg)
-![pcb](psl5.jpg)
+The full list, including the anti-alias and link-margin caveats: **[docs/LIMITATIONS.md](docs/LIMITATIONS.md)**.
 
+## Safety, licensing and credit
 
----
+| Document | Purpose |
+| --- | --- |
+| [SAFETY.md](SAFETY.md) | Electrical isolation, electrode handling, consent, stop rules |
+| [LICENSE.md](LICENSE.md) | Strict personal & educational licence; commercial and clinical use need written permission |
+| [NOTICE.md](NOTICE.md) | Required attribution text and logo usage |
+| [AUTHORS.md](AUTHORS.md) | Author identity and official links |
+| [CHANGELOG.md](CHANGELOG.md) | What changed in this revision and why |
 
-## ⚠️ REGULATORY NOTICE & COMPLIANCE
-**NOT CERTIFIED FOR MEDICAL, CLINICAL, OR INDUSTRIAL USE.**
-This project, its schematics, PCB layouts, and software are strictly experimental prototypes. This device has **NOT** been evaluated, certified, or approved by the FCC, FDA, CE, or any other global or regional regulatory agency. It has not undergone formal electromagnetic compatibility (EMC) testing, medical safety isolation testing, or clinical trials. 
+**Created by mikey-7x — Yogesh R. Chauhan**
+(also known as Chauhan Yogeshkumar R.; online pseudonyms “mikey-7x” and “mikey”).
 
-**CRITICAL SAFETY WARNING:** Never connect this device to mains power (wall outlets) or any device/computer that is plugged into mains power while the electrodes are attached to a human body. This device must strictly be operated on isolated, low-voltage battery power (e.g., 3.7V Li-Po) to prevent the risk of fatal electric shock.
+Thanks are due to the maintainers of Arduino, Adafruit (ADS1X15 library), NumPy, SciPy,
+scikit-learn, XGBoost, TensorFlow/Keras, matplotlib, Termux, PRoot, Arch Linux and
+Miniforge. Their work remains under their own licences.
 
----
+<div align="center">
 
-## ⚖️ LEGAL DISCLAIMER & LIMITATION OF LIABILITY
-**USE STRICTLY AT YOUR OWN RISK.**
-The creator, author ("mikey-7x"), and any contributors to this repository provide this project, software, hardware designs, code, and documentation "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, safety, and non-infringement.
+<img src="assets/mikey-hexoid-sys-mark.png" alt="mikey:hexoid-sys" width="120">
 
-IN NO EVENT SHALL THE AUTHOR, CREATOR, OR CONTRIBUTORS BE HELD LIABLE FOR ANY CLAIM, DAMAGES, INJURY (INCLUDING INJURY, BRAIN DAMAGE, OR DEATH RESULTING FROM ELECTRIC SHOCK OR HARDWARE MALFUNCTION), OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE, HARDWARE, EXPERIMENTATION, ASSEMBLY, OR THE USE OR OTHER DEALINGS IN THIS PROJECT. 
+**`POWERED BY [mikey:hexoid-sys]`**
 
-By building, running, downloading, or interacting with Project Synapse in any way, you explicitly acknowledge and agree that you assume 100% of the risk, responsibility, and liability for your actions.
+Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
 
----
+[Profile](https://github.com/mikey-7x) ·
+[All repositories](https://github.com/mikey-7x?tab=repositories) ·
+[YouTube](https://youtube.com/@mikey-7x) ·
+[Blog](https://rtod-yv8.blogspot.com/?m=1)
 
-## 📜 License & Copyright
-**Copyright (c) 2026 mikey-7x. All rights reserved.**
+<sub>Non-commercial licence. No clinical or regulatory approval. Not affiliated with or
+endorsed by any vendor named above.</sub>
 
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** License.
+</div>
 
-**Under this license, you are free to:**
-* **Share** — copy and redistribute the material in any medium or format.
-* **Adapt** — remix, transform, and build upon the material for personal, hobbyist, or academic purposes.
+<details>
+<summary>Original project artwork</summary>
 
-**Under the following terms:**
-* **Attribution** — You must give appropriate credit to "mikey-7x", provide a link to the license, and indicate if changes were made.
-* **NonCommercial (Strictly Enforced)** — You may **NOT** use the material for commercial purposes. You cannot manufacture and sell this hardware, you cannot sell this software, and you cannot use the `[mikey:hexoid-sys]` engine or its derivatives in any monetized, ad-supported, funded, or profit-generating application.
+![Project Synapse original artwork](project%20synapse%20original.jpg)
 
-### 💼 Commercial Licensing (Dual-License)
-Project Synapse is strictly protected against unauthorized corporate use. If you are a corporation, startup, medical entity, or individual who wishes to utilize Project Synapse, its schematics, or the proprietary `[mikey:hexoid-sys]` AI architecture for commercial purposes, you must obtain explicit, written legal permission. Please contact the author directly to negotiate a commercial license agreement.
-
-auther Gmail id:
-chauhanyogesh9825@gmail.com
+</details>
