@@ -1,0 +1,28 @@
+name: Repository checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify structure, branding, licence and assets
+        run: python3 tools/verify_repository.py
+
+      - name: Compile both Python engines
+        run: python3 -m py_compile synapse.py next_synapse.py
+
+      - name: Confirm firmware constants
+        run: |
+          grep -q "sampleInterval = 7142" sketch_mar20b.ino
+          grep -q "GAIN_TWOTHIRDS" sketch_mar20b.ino
+          grep -q "0xAA" sketch_mar20b.ino
+          grep -q "0x55" sketch_mar20b.ino

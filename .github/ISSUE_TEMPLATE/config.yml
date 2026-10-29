@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Safety rules - read before powering anything
+    url: https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android/blob/main/SAFETY.md
+    about: Isolation, electrodes, consent and stop rules. Battery power only.
+  - name: Documentation
+    url: https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android/tree/main/docs
+    about: Hardware, protocol, algorithm, Android setup, usage, limits, troubleshooting.
+  - name: Author profile
+    url: https://github.com/mikey-7x
+    about: mikey-7x (author identity). POWERED BY [mikey:hexoid-sys].

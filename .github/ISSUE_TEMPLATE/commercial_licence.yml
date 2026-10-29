@@ -1,0 +1,52 @@
+name: Commercial or clinical licence request
+description: Request written permission for commercial, clinical or industrial use
+title: "[licence] commercial or clinical use request"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Project Synapse is released under the strict personal and educational licence in
+        `LICENSE.md`. Selling hardware, kits, software, models or support, and any clinical,
+        industrial or workplace use, require a separate signed written licence from
+        mikey-7x. `POWERED BY [mikey:hexoid-sys]` must remain visible in any permitted use.
+        No commercial or clinical rights are granted by opening this issue.
+  - type: input
+    id: name
+    attributes:
+      label: Your name or organisation
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of use
+      options:
+        - Commercial product development
+        - Manufacturing or production
+        - Clinical or healthcare service
+        - Academic or institutional research
+        - Classroom or training programme
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What you intend to build or do
+      description: Describe the product, service or study, and where the hardware would be operated
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Preferred contact
+      description: Email or other channel for the written reply
+    validations:
+      required: true
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I understand no commercial or clinical rights exist until a written licence is signed
+          required: true
