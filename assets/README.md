@@ -11,7 +11,7 @@ attribution required by [`LICENSE.md`](../LICENSE.md).
 | `powered-by-mikey-hexoid-sys.svg` | vector | Print and large-format use |
 | `mikey-hexoid-sys-mark.png` | 1024 × 1024 | Square mark for icons, footers and labels |
 | `mikey-hexoid-sys-mark.svg` | vector | Scalable square mark |
-| `github-social-preview.png` | 1280 × 640 | Link-preview image for the repository |
+| `github-social-preview.png` | 1280 × 640 | Project-specific link-preview image (upload it under Settings → Social preview) |
 | `scientific-poster.png` | 2481 × 3508 (A2, 150 dpi) | Research poster, screen and preview |
 | `scientific-poster.pdf` | A2 vector | Print-ready poster |
 
@@ -35,6 +35,16 @@ python3 tools/make_poster.py
 The generator is deterministic: it synthesises its waveforms, feature vector and DTW cost
 surface from a fixed seed, then writes `assets/scientific-poster.png` and
 `assets/scientific-poster.pdf`.
+
+## Regenerating the social preview
+
+```bash
+python3 tools/make_social_preview.py
+```
+
+Also deterministic. It draws the project title, the signal chain, the decoded trace and the
+attribution on a 1280 × 640 card. Do not use the social-preview artwork of a different
+repository here.
 
 ## Integrity
 
