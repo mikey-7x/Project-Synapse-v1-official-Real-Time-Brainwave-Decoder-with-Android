@@ -1,14 +1,12 @@
 mikey-7x STRICT PERSONAL & EDUCATIONAL USE LICENCE
 
-Copyright (c) 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+Copyright (c) 2026 mikey-7x. All rights reserved.
 
 Project: Project Synapse v1 - real-time EEG / subvocal-EMG decoder
          with Android-hosted analysis (hardware, firmware, software,
          models, documentation and figures)
 Brand:   POWERED BY [mikey:hexoid-sys]
-Author:  Yogesh R. Chauhan (mikey-7x)
-Also known as: Chauhan Yogeshkumar R.; online pseudonyms "mikey-7x"
-         and "mikey"
+Author:  mikey-7x  (public GitHub identity; short form "mikey")
 GitHub profile: https://github.com/mikey-7x
 GitHub repositories: https://github.com/mikey-7x?tab=repositories
 Project repository: https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
@@ -30,9 +28,11 @@ delete every copy in your possession or control.
 
 1. DEFINITIONS
 
-1.1 "Author" means Yogesh R. Chauhan, publicly known as mikey-7x
-    (also known as Chauhan Yogeshkumar R. and by the online pseudonym
-    "mikey"), including lawful successors and assigns.
+1.1 "Author" means the individual who publishes this project under the
+    GitHub identity "mikey-7x" at https://github.com/mikey-7x, including
+    lawful successors and assigns.  This licence deliberately publishes no
+    personal legal name, postal address or email address: the GitHub
+    identity is the author's public point of reference.
 
 1.2 "Project Materials" means every original part of this project that
     is owned or controlled by the Author, including without limitation:
@@ -125,12 +125,12 @@ Attribution is a condition of permission, not a courtesy.
     clearly and legibly include ALL of the following, wherever
     technically and reasonably possible:
 
-    (a) "Created by mikey-7x" and the name "Yogesh R. Chauhan";
+    (a) the exact line "Created by mikey-7x";
     (b) the exact line "POWERED BY [mikey:hexoid-sys]";
     (c) the supplied Logo without distortion, cropping that removes text,
         recolouring that makes it misleading or illegible, or separation
         of the mark from the required credit;
-    (d) "Copyright (c) 2026 Yogesh R. Chauhan (mikey-7x). All rights
+    (d) "Copyright (c) 2026 mikey-7x. All rights
         reserved.";
     (e) a complete, unmodified copy of this licence; and
     (f) links or clear references to https://github.com/mikey-7x and to
@@ -151,7 +151,7 @@ Attribution is a condition of permission, not a courtesy.
     manual, project page or accompanying material.
 
 4.5 You must not state or imply that you are the original creator of
-    material written or designed by Yogesh R. Chauhan (mikey-7x).  You may
+    material written or designed by mikey-7x.  You may
     accurately identify the specific changes that you personally made.
 
 4.6 You must not remove, obscure, encrypt, rename to conceal, replace or
@@ -252,10 +252,9 @@ licence.
 
 9. LOGO AND NAME RIGHTS
 
-9.1 The Logo, the names "Yogesh R. Chauhan", "Chauhan Yogeshkumar R.",
-    "mikey-7x" and "mikey" when used for this project, the identity
-    "[mikey:hexoid-sys]" and the line "POWERED BY [mikey:hexoid-sys]" are
-    source identifiers of the Author.  This licence grants only the
+9.1 The Logo, the identity "mikey-7x" and its short form "mikey" when used
+    for this project, the identity "[mikey:hexoid-sys]" and the line
+    "POWERED BY [mikey:hexoid-sys]" are source identifiers of the Author.  This licence grants only the
     limited right to reproduce them for mandatory attribution under
     section 4.
 
@@ -356,7 +355,7 @@ onward.
 15.5 For commercial licensing, industrial use, clinical collaboration or
      any permission not expressly granted above, contact:
 
-         Yogesh R. Chauhan (mikey-7x)
+         mikey-7x (public GitHub identity)
          GitHub: https://github.com/mikey-7x
          Commercial-licence requests: open the "Commercial or clinical
          licence request" issue in https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android

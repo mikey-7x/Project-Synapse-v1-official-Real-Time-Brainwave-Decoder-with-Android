@@ -1,6 +1,6 @@
 # Algorithm
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 Everything here is implemented in `synapse.py` (build v18) and `next_synapse.py` (build v19).
 The two builds share the pipeline; v19 changes model hyper-parameters.

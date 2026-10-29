@@ -1,6 +1,6 @@
 # Using the application
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 > Read [SAFETY.md](../SAFETY.md) first. Everything below assumes battery power and a
 > consenting adult.

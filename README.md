@@ -178,8 +178,8 @@ The full list, including the anti-alias and link-margin caveats: **[docs/LIMITAT
 | [AUTHORS.md](AUTHORS.md) | Author identity and official links |
 | [CHANGELOG.md](CHANGELOG.md) | What changed in this revision and why |
 
-**Created by mikey-7x — Yogesh R. Chauhan**
-(also known as Chauhan Yogeshkumar R.; online pseudonyms “mikey-7x” and “mikey”).
+**Created by mikey-7x** — the author identity used across every repository of this account
+(short form “mikey”). No personal name or email address is published.
 
 Thanks are due to the maintainers of Arduino, Adafruit (ADS1X15 library), NumPy, SciPy,
 scikit-learn, XGBoost, TensorFlow/Keras, matplotlib, Termux, PRoot, Arch Linux and
@@ -191,7 +191,7 @@ Miniforge. Their work remains under their own licences.
 
 **`POWERED BY [mikey:hexoid-sys]`**
 
-Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+Copyright © 2026 mikey-7x. All rights reserved.
 
 [Profile](https://github.com/mikey-7x) ·
 [All repositories](https://github.com/mikey-7x?tab=repositories) ·

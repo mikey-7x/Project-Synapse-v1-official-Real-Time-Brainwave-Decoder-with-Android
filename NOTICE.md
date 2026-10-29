@@ -2,14 +2,13 @@
 
 **Project:** Project Synapse v1 — real-time EEG / subvocal-EMG decoder with Android-hosted analysis
 
-**Created by:** mikey-7x — Yogesh R. Chauhan  
-**Also known as:** Chauhan Yogeshkumar R.; online pseudonyms “mikey-7x” and “mikey”
+**Created by:** mikey-7x (public author identity, short form “mikey”)
 
 **POWERED BY [mikey:hexoid-sys]**
 
 ![POWERED BY [mikey:hexoid-sys]](assets/powered-by-mikey-hexoid-sys.png)
 
-Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+Copyright © 2026 mikey-7x. All rights reserved.
 
 ## Official links
 
@@ -21,9 +20,10 @@ Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
 
 ## Identity notice
 
-> “mikey-7x” and “mikey” are the online pseudonyms of **Yogesh R. Chauhan** (also known as
-> Chauhan Yogeshkumar R.). All repositories under the `mikey-7x` GitHub account are authored
-> by the same person unless otherwise noted.
+> “mikey-7x” (short form “mikey”) is the author identity used for every repository under
+> the `mikey-7x` GitHub account. No personal legal name, postal address or email address is
+> published; the GitHub profile and this repository's issue forms are the official contact
+> points.
 
 This repository is source-available only under the **mikey-7x Strict Personal & Educational
 Use Licence** in [`LICENSE.md`](LICENSE.md). It is not open source. Commercial, clinical and
@@ -31,9 +31,9 @@ industrial use require a separate signed written licence.
 
 ## Required credit
 
-> Created by mikey-7x — Yogesh R. Chauhan  
+> Created by mikey-7x  
 > POWERED BY [mikey:hexoid-sys]  
-> Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.  
+> Copyright © 2026 mikey-7x. All rights reserved.  
 > GitHub: https://github.com/mikey-7x  
 > Project: https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
 

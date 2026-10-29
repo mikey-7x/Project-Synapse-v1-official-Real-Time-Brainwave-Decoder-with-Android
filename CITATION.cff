@@ -26,12 +26,8 @@ keywords:
   - android
   - termux
 authors:
-  - family-names: "Chauhan"
-    given-names: "Yogesh R."
-    alias: "mikey-7x"
+  - name: "mikey-7x"
     website: "https://github.com/mikey-7x"
 contact:
-  - family-names: "Chauhan"
-    given-names: "Yogesh R."
-    alias: "mikey-7x"
+  - name: "mikey-7x"
     website: "https://github.com/mikey-7x"

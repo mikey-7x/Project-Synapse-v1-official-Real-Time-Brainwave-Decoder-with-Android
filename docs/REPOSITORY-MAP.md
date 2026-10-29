@@ -1,6 +1,6 @@
 # Repository map
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 Every file in this repository, and why it exists.
 

@@ -2,7 +2,7 @@
 
 POWERED BY [mikey:hexoid-sys]
 
-These files belong to **Yogesh R. Chauhan (mikey-7x)** and may be reproduced only for the
+These files belong to **mikey-7x** and may be reproduced only for the
 attribution required by [`LICENSE.md`](../LICENSE.md).
 
 | File | Size | Use |
@@ -20,7 +20,7 @@ attribution required by [`LICENSE.md`](../LICENSE.md).
 1. Do not crop out, erase or restyle the text `[mikey:hexoid-sys]`.
 2. Proportional resizing is fine; stretching, skewing or recolouring to illegibility is not.
 3. Always show the credit with the mark:
-   `Created by mikey-7x — Yogesh R. Chauhan` and `POWERED BY [mikey:hexoid-sys]`.
+   `Created by mikey-7x` and `POWERED BY [mikey:hexoid-sys]`.
 4. Do not use these files for unrelated projects or to suggest endorsement or clinical
    validation.
 5. The poster figures are illustrations of the processing chain, not measured results. Do not

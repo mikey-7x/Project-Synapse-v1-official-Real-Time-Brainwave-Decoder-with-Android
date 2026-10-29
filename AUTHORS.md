@@ -4,17 +4,17 @@
 
 ## Project author
 
-**Yogesh R. Chauhan (mikey-7x)**
+**mikey-7x**
 
-- Also known as: Chauhan Yogeshkumar R.
-- Online pseudonyms: “mikey-7x” and “mikey”
+- Public author identity: **mikey-7x** (short form: “mikey”)
 - Profile title: Software Developer | Open-Source Contributor | EC Specialist
-- Education: Diploma in Electronics and Communication (EC), BBIT, India
-- Copyright holder for this project: Yogesh R. Chauhan (mikey-7x)
+- Field of study: Electronics and Communication (Diploma), BBIT, India
+- Copyright holder for this project: mikey-7x
 
-> **Identity notice:** “mikey-7x” and “mikey” are the online pseudonyms of Yogesh R. Chauhan
-> (also known as Chauhan Yogeshkumar R.). All repositories under the `mikey-7x` GitHub account
-> are authored by the same person unless otherwise noted.
+> **Identity notice:** every repository under the `mikey-7x` GitHub account is authored by the
+> same person, who publishes only under this identity. No personal legal name, postal address
+> or email address appears in this repository; the GitHub profile and the repository's issue
+> forms are the official contact points.
 
 ## Official links
 
@@ -27,9 +27,9 @@
 ## Required project credit
 
 ```text
-Created by mikey-7x — Yogesh R. Chauhan
+Created by mikey-7x
 POWERED BY [mikey:hexoid-sys]
-Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+Copyright © 2026 mikey-7x. All rights reserved.
 GitHub: https://github.com/mikey-7x
 Project: https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android
 ```

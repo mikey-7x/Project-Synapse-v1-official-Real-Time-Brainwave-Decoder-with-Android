@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 ## The window never appears
 

@@ -1,6 +1,6 @@
 # Hardware
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 > Battery power only while electrodes touch a person. See [SAFETY.md](../SAFETY.md).
 

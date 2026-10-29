@@ -1,6 +1,6 @@
 # Wire protocol and timing budget
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 ## Frame format
 

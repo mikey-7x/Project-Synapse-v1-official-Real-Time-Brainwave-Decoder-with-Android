@@ -1,6 +1,6 @@
 # Contributing
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 Thank you for improving Project Synapse. Because this project touches human bodies and
 medical-adjacent claims, the standards are deliberately strict.

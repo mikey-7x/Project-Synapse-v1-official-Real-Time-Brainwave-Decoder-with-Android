@@ -2,8 +2,8 @@
 # PROJECT SYNAPSE v1 - real-time EEG / subvocal-EMG decoder
 # POWERED BY [mikey:hexoid-sys]
 #
-# Created by mikey-7x - Yogesh R. Chauhan
-# Copyright (c) 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+# Created by mikey-7x
+# Copyright (c) 2026 mikey-7x. All rights reserved.
 # Licence: mikey-7x Strict Personal & Educational Use Licence (see LICENSE.md).
 #          Commercial, clinical or industrial use needs written permission.
 #
@@ -740,6 +740,6 @@ class QuantumSynapseGUI:
 
 if __name__ == "__main__":
     print("PROJECT SYNAPSE v1  |  POWERED BY [mikey:hexoid-sys]")
-    print("Created by mikey-7x - Yogesh R. Chauhan  |  strict non-commercial licence")
+    print("Created by mikey-7x  |  strict non-commercial licence")
     app = QuantumSynapseGUI(tk.Tk())
     app.root.mainloop()

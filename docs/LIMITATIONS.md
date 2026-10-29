@@ -1,6 +1,6 @@
 # Limitations
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 Stated plainly, because an instrument is only credible when its boundaries are visible.
 

@@ -1,6 +1,6 @@
 # Safety
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 > [!CAUTION]
 > This is an experimental electronics prototype, not a medical device. It has no electrical

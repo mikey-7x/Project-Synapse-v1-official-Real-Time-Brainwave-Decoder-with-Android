@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Project Synapse v1 - A2 scientific poster generator (deterministic).
 
-POWERED BY [mikey:hexoid-sys] - Created by mikey-7x - Yogesh R. Chauhan
-Copyright (c) 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.
+POWERED BY [mikey:hexoid-sys] - Created by mikey-7x
+Copyright (c) 2026 mikey-7x. All rights reserved.
 Licence: mikey-7x Strict Personal & Educational Use Licence (see LICENSE.md).
 
 Every waveform, the feature vector and the DTW cost surface are synthesised
@@ -198,7 +198,7 @@ fig_text(0.968, 0.9375, "POWERED BY [mikey:hexoid-sys]", size=10.4, color=SILVER
          weight="bold", ha="right", family="DejaVu Sans Mono", va="bottom")
 
 fig.lines.append(plt.Line2D([0.03, 0.97], [0.9285, 0.9285], color=BORDER, lw=1.2))
-fig_text(0.030, 0.9205, "Yogesh R. Chauhan  ·  mikey-7x", size=13.4, color=TEXT, weight="bold")
+fig_text(0.030, 0.9205, "mikey-7x", size=13.4, color=TEXT, weight="bold")
 fig_text(0.325, 0.9212, "github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android",
          size=8.9, color=MUTED, family="DejaVu Sans Mono")
 fig_text(0.970, 0.9205, "Experimental research prototype  ·  not a medical device",
@@ -463,13 +463,13 @@ p9.text(0.012, 0.26,
 # =========================================================== FOOTER =========
 fig.lines.append(plt.Line2D([0.03, 0.97], [0.0215, 0.0215], color=BORDER, lw=1.0))
 fig_text(0.030, 0.0165, "Project Synapse v1", size=10.2, weight="bold", color=TEXT)
-fig_text(0.145, 0.0175, "Created by mikey-7x — Yogesh R. Chauhan  ·  strict personal & educational licence",
+fig_text(0.145, 0.0175, "Created by mikey-7x  ·  strict personal & educational licence",
          size=8.4, color=MUTED)
 fig_text(0.970, 0.0165, "POWERED BY [mikey:hexoid-sys]", size=10.0, weight="bold",
          color=SILVER, ha="right", family="DejaVu Sans Mono")
 fig_text(0.030, 0.0060, "github.com/mikey-7x  ·  github.com/mikey-7x?tab=repositories  ·  youtube.com/@mikey-7x",
          size=7.8, color=DIM, family="DejaVu Sans Mono")
-fig_text(0.970, 0.0060, "Copyright © 2026 Yogesh R. Chauhan (mikey-7x). All rights reserved.",
+fig_text(0.970, 0.0060, "Copyright © 2026 mikey-7x. All rights reserved.",
          size=7.8, color=DIM, ha="right")
 
 fig.savefig(OUT / "scientific-poster.png", facecolor=BG, dpi=150)

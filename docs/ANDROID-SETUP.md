@@ -1,6 +1,6 @@
 # Android setup (Termux → PRoot Arch → Miniforge)
 
-**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x — Yogesh R. Chauhan
+**POWERED BY [mikey:hexoid-sys]** · Created by mikey-7x
 
 The application uses Tk and TensorFlow, neither of which is practical inside plain Termux.
 The working arrangement is Termux as the host, an Arch Linux container under PRoot, and a

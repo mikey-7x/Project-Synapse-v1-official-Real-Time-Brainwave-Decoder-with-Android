@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Offline self-check for the Project Synapse v1 repository.
 
-POWERED BY [mikey:hexoid-sys] - Created by mikey-7x - Yogesh R. Chauhan
+POWERED BY [mikey:hexoid-sys] - Created by mikey-7x
 
 Verifies the expected file set, required attribution, licence terms, the safety
 document, Python syntax of both engines, the firmware constants that define the
@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BRAND = "POWERED BY [mikey:hexoid-sys]"
 REPO_URL = "https://github.com/mikey-7x/Project-Synapse-v1-official-Real-Time-Brainwave-Decoder-with-Android"
-AUTHOR = "Yogesh R. Chauhan"
+AUTHOR = "mikey-7x"
 
 REQUIRED = [
     "README.md", "LICENSE.md", "NOTICE.md", "AUTHORS.md", "SAFETY.md",
@@ -63,7 +63,7 @@ for rel in ("README.md", "NOTICE.md", "AUTHORS.md", "LICENSE.md", "SAFETY.md",
         check(f"brand line in {rel}", BRAND in read(rel))
 
 readme = read("README.md") if (ROOT / "README.md").is_file() else ""
-check("README credits the author", "Created by mikey-7x" in readme and AUTHOR in readme)
+check("README credits the author", "Created by mikey-7x" in readme)
 check("README links the repository", REPO_URL in readme)
 check("README shows the poster", "assets/scientific-poster.png" in readme)
 check("README shows the hero logo", "assets/powered-by-mikey-hexoid-sys.png" in readme)
@@ -76,10 +76,11 @@ licence = read("LICENSE.md") if (ROOT / "LICENSE.md").is_file() else ""
 for phrase in ("STRICT PERSONAL & EDUCATIONAL USE LICENCE",
                "Attribution is a condition of permission",
                "ABSOLUTE COMMERCIAL, CLINICAL AND INDUSTRIAL PROHIBITION",
-               "Copyright (c) 2026 Yogesh R. Chauhan",
+               "Copyright (c) 2026 mikey-7x",
                "not an open-source licence",
                BRAND, REPO_URL):
-    check(f"licence contains: {phrase[:44]}", re.search(re.escape(phrase).replace(chr(92)+" ", r"\s+"), licence, re.I) is not None)
+        flat = " ".join(licence.split()).lower()
+        check(f"licence contains: {phrase[:44]}", " ".join(phrase.split()).lower() in flat)
 check("licence prohibits clinical use",
       "NOT permitted under any circumstance" in licence)
 check("licence keeps prior CC BY-NC rights", "CC BY-NC" in licence or "Creative Commons" in licence)
@@ -151,7 +152,16 @@ for rel in ("README.md", "NOTICE.md", "SAFETY.md", "docs/USAGE.md"):
 
 citation = read("CITATION.cff") if (ROOT / "CITATION.cff").is_file() else ""
 check("citation metadata present",
-      "cff-version: 1.2.0" in citation and "Chauhan" in citation and "mikey-7x" in citation)
+      "cff-version: 1.2.0" in citation and '"mikey-7x"' in citation)
+
+# ------------------------------------------------- no personal name anywhere ---
+for rel in sorted(p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*")
+                  if p.is_file() and p.suffix.lower() in {".md", ".py", ".yml", ".cff", ".ino", ".txt"}):
+    if rel == "tools/verify_repository.py":
+        continue          # this file lists the forbidden fragments by design
+    low = read(rel).lower()
+    check(f"no personal name in {rel}",
+          not any(n in low for n in ("yogesh", "chauhan", "9825", "9512")))
 
 total = len(passed) + len(failed)
 print(f"Repository verification: {len(passed)}/{total} passed")
