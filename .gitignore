@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Model and data artefacts produced at run time
+Synapse_Memory/
+EEG_Data/
+Models/
+*.keras
+*.joblib
+*.h5
+*.pkl
+*.csv
+
+# Local figures and scratch output
+*.log
+scratch/
+build/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Deliverables that are deliberately committed
+!assets/*.png
+!assets/*.svg
+!assets/*.pdf
+!sketch_mar29a.cpp.hex
